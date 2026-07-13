@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Curiosity Classrooms — three homepage directions</title>
+<style>
+  :root {
+    --paper: #F7F6F2;
+    --card: #FFFFFF;
+    --ink: #26312E;
+    --body: #48544F;
+    --muted: #75817B;
+    --line: #DDD9CF;
+    --a-accent: #0E7C7B;
+    --b-accent: #16273E;
+    --b-accent-text: #16273E;
+    --c-accent: #1F5B49;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #151A18; --card: #1E2523; --ink: #EAEDE9; --body: #B9C2BC;
+      --muted: #8A948E; --line: #313A36;
+      --a-accent: #56BDB4; --b-accent: #8FA5C4; --b-accent-text: #A9BCD6; --c-accent: #6FC2A2;
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: #F7F6F2; --card: #FFFFFF; --ink: #26312E; --body: #48544F;
+    --muted: #75817B; --line: #DDD9CF;
+    --a-accent: #0E7C7B; --b-accent: #16273E; --b-accent-text: #16273E; --c-accent: #1F5B49;
+  }
+  :root[data-theme="dark"] {
+    --paper: #151A18; --card: #1E2523; --ink: #EAEDE9; --body: #B9C2BC;
+    --muted: #8A948E; --line: #313A36;
+    --a-accent: #56BDB4; --b-accent: #8FA5C4; --b-accent-text: #A9BCD6; --c-accent: #6FC2A2;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--body);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 17px; line-height: 1.6; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 56px 24px 64px; }
+  h1 { color: var(--ink); font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 700;
+    letter-spacing: -0.015em; margin: 0 0 12px; text-wrap: balance; }
+  .intro { max-width: 46em; margin: 0 0 10px; }
+  .note { color: var(--muted); font-size: 0.92rem; max-width: 46em; margin: 0 0 42px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 24px; }
+  .option { background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 26px 26px 24px; display: flex; flex-direction: column; gap: 10px;
+    border-top-width: 5px; }
+  .option.a { border-top-color: var(--a-accent); }
+  .option.b { border-top-color: var(--b-accent); }
+  .option.c { border-top-color: var(--c-accent); }
+  .option .tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--muted); }
+  .option h2 { color: var(--ink); font-size: 1.2rem; margin: 0; font-weight: 700; }
+  .option p { margin: 0; font-size: 0.94rem; flex-grow: 1; }
+  .option a.view { display: inline-block; margin-top: 14px; font-weight: 600;
+    text-decoration: none; padding: 10px 20px; border-radius: 8px; align-self: flex-start;
+    border: 1.5px solid var(--line); color: var(--ink); }
+  .option.a a.view { border-color: var(--a-accent); color: var(--a-accent); }
+  .option.b a.view { border-color: var(--b-accent); color: var(--b-accent-text); }
+  .option.c a.view { border-color: var(--c-accent); color: var(--c-accent); }
+  a:focus-visible { outline: 3px solid var(--a-accent); outline-offset: 2px; }
+  .footer { margin-top: 48px; border-top: 1px solid var(--line); padding-top: 22px;
+    color: var(--muted); font-size: 0.84rem; }
+  .footer p { margin: 5px 0; max-width: 60em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Curiosity Classrooms — three directions for the homepage</h1>
+  <p class="intro">Three creative-direction prototypes for the Curiosity Classrooms website,
+    each written and designed for a different reader. Same facts on every page — what changes
+    is the voice, the look, and what the page asks the reader to do.</p>
+  <p class="note">These are working drafts for review, not a live site. Dashed amber
+    boxes mark facts and details still to be confirmed. Each page adapts to light or
+    dark mode.</p>
+
+  <div class="grid">
+    <div class="option a">
+      <span class="tag">Option A · warm &amp; energetic</span>
+      <h2>For science teachers</h2>
+      <p>Speaks to the teacher in the room: what a curiosity-driven lesson changes on an
+        ordinary Tuesday, and an easy way to nudge their science lead or principal.</p>
+      <a class="view" href="prototypes/curiosity-teacher.html">View option A</a>
+    </div>
+    <div class="option b">
+      <span class="tag">Option B · executive brief</span>
+      <h2>For superintendents</h2>
+      <p>A restrained, board-room read: division-level outcomes, a three-phase engagement
+        model, and a briefing request — built for a thirty-second credibility check.</p>
+      <a class="view" href="prototypes/curiosity-superintendent.html">View option B</a>
+    </div>
+    <div class="option c">
+      <span class="tag">Option C · peer to peer</span>
+      <h2>For division science leads</h2>
+      <p>First person, colleague to colleague: a thought partner who has sat in the
+        coordinator's chair, with a roadmap of ways to work together.</p>
+      <a class="view" href="prototypes/curiosity-science-lead.html">View option C</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p><strong>The Curiosity Classrooms LLC</strong> · Reston, Virginia</p>
+    <p>Curiosity Classrooms is an independent consultancy and is not affiliated with, or
+      endorsed by, the Virginia Department of Education or Fairfax County Public Schools.</p>
+  </div>
+</div>
+</body>
+</html>

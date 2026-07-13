@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Curiosity Classrooms · Prototype B — Superintendent Angle</title>
+</head>
+<body>
+<style>
+  :root {
+    --paper: #FAF9F5;
+    --panel: #F1EFE7;
+    --ink: #16273E;
+    --body: #3B4756;
+    --muted: #6B7684;
+    --copper: #A8762E;
+    --hairline: #DCD8CE;
+    --ph-bg: #F5EBD3;
+    --ph-edge: #B8892F;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #0F1722; --panel: #16202E; --ink: #E9E5DA; --body: #B7BFC9;
+      --muted: #8792A1; --copper: #C9974B; --hairline: #2A3546;
+      --ph-bg: #2E2718; --ph-edge: #C9974B;
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: #FAF9F5; --panel: #F1EFE7; --ink: #16273E; --body: #3B4756;
+    --muted: #6B7684; --copper: #A8762E; --hairline: #DCD8CE;
+    --ph-bg: #F5EBD3; --ph-edge: #B8892F;
+  }
+  :root[data-theme="dark"] {
+    --paper: #0F1722; --panel: #16202E; --ink: #E9E5DA; --body: #B7BFC9;
+    --muted: #8792A1; --copper: #C9974B; --hairline: #2A3546;
+    --ph-bg: #2E2718; --ph-edge: #C9974B;
+  }
+
+  * { box-sizing: border-box; }
+  body { background: var(--paper); color: var(--body); margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 17px; line-height: 1.65; }
+  .serif { font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif; }
+
+  a { color: var(--copper); }
+  a:focus-visible { outline: 3px solid var(--copper); outline-offset: 2px; }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 28px; }
+
+  header.top { padding: 26px 0 22px; border-bottom: 1px solid var(--hairline);
+    display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .wordmark { font-size: 1.15rem; color: var(--ink); letter-spacing: 0.02em; }
+  .wordmark b { font-weight: 700; }
+  .proto-badge { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--muted); }
+
+  .hero { padding: 72px 0 64px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.74rem;
+    font-weight: 600; color: var(--copper); margin: 0 0 26px; }
+  .hero h1 { color: var(--ink); font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.12;
+    font-weight: 500; margin: 0 0 26px; letter-spacing: -0.005em; text-wrap: balance;
+    max-width: 17em; }
+  .hero p.lede { font-size: 1.14rem; max-width: 36em; margin: 0 0 36px; }
+  .rule-copper { width: 72px; height: 3px; background: var(--copper); border: 0; margin: 0 0 36px; }
+
+  .btn-row { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
+  .btn { display: inline-block; padding: 13px 30px; text-decoration: none;
+    font-weight: 600; font-size: 0.98rem; letter-spacing: 0.02em; }
+  .btn.primary { background: var(--ink); color: var(--paper); }
+  .btn.quiet { color: var(--ink); border-bottom: 2px solid var(--copper); padding: 4px 2px; }
+
+  section { padding: 60px 0; border-top: 1px solid var(--hairline); }
+  h2 { color: var(--ink); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 500;
+    margin: 0 0 12px; letter-spacing: 0; text-wrap: balance; }
+  .kicker { color: var(--muted); max-width: 44em; margin: 0 0 40px; }
+
+  .focus-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .focus { padding: 26px 30px 26px 0; border-top: 1px solid var(--hairline); }
+  .focus:nth-child(odd) { padding-right: 40px; }
+  .focus:nth-child(even) { padding-left: 40px; border-left: 1px solid var(--hairline); }
+  .focus h3 { color: var(--ink); font-size: 1.05rem; font-weight: 600; margin: 0 0 8px; }
+  .focus p { margin: 0; font-size: 0.95rem; }
+
+  .model { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px; counter-reset: step; }
+  .step { border-top: 3px solid var(--copper); padding-top: 20px; }
+  .step .num { font-size: 0.78rem; letter-spacing: 0.18em; color: var(--copper);
+    font-weight: 700; font-variant-numeric: tabular-nums; }
+  .step h3 { color: var(--ink); font-size: 1.2rem; font-weight: 500; margin: 10px 0 10px; }
+  .step p { margin: 0; font-size: 0.95rem; }
+
+  .about { display: grid; grid-template-columns: 200px 1fr; gap: 44px; align-items: start; }
+  .headshot { aspect-ratio: 4/5; background: var(--panel); border: 1px solid var(--hairline);
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    color: var(--muted); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 12px; line-height: 1.8; }
+  .about p { margin: 0 0 16px; }
+  .about .cred-line { font-size: 0.9rem; color: var(--muted); border-left: 2px solid var(--hairline);
+    padding-left: 16px; margin-top: 24px; }
+
+  .cta-panel { background: var(--panel); border: 1px solid var(--hairline);
+    padding: 48px 48px; margin-top: 8px; }
+  .cta-panel h2 { margin-bottom: 8px; }
+  .cta-panel p { max-width: 40em; margin: 0 0 30px; }
+
+  .ph { background: var(--ph-bg); border: 1.5px dashed var(--ph-edge); border-radius: 4px;
+    padding: 1px 7px; font-family: ui-monospace, Consolas, monospace; font-size: 0.8em; }
+
+  footer { border-top: 1px solid var(--hairline); padding: 36px 0 52px;
+    color: var(--muted); font-size: 0.84rem; }
+  footer p { margin: 6px 0; max-width: 62em; }
+
+  @media (max-width: 720px) {
+    .hero { padding: 48px 0 44px; }
+    .focus-grid { grid-template-columns: 1fr; }
+    .focus:nth-child(even) { padding-left: 0; border-left: 0; }
+    .focus:nth-child(odd) { padding-right: 0; }
+    .model { grid-template-columns: 1fr; gap: 28px; }
+    .about { grid-template-columns: 1fr; }
+    .headshot { max-width: 220px; }
+    .cta-panel { padding: 32px 24px; }
+  }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="wordmark serif"><b>Curiosity Classrooms</b> &nbsp;·&nbsp; K-12 Science Leadership &amp; PD Consulting, Virginia</div>
+    <div class="proto-badge">Prototype B · Superintendent angle</div>
+  </header>
+
+  <div class="hero">
+    <p class="eyebrow">An independent consultancy for Virginia school divisions</p>
+    <h1 class="serif">Stronger science instruction in every school in your division.</h1>
+    <hr class="rule-copper">
+    <p class="lede">Curiosity Classrooms partners with division leadership to plan
+      professional development, align instructional resources to the Science Standards of
+      Learning, and build lasting capacity in science teaching — without adding headcount.</p>
+    <div class="btn-row">
+      <a class="btn primary" href="#briefing">Request a briefing</a>
+      <a class="btn quiet" href="#briefing">One-page overview for your instructional team</a>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2 class="serif">Where divisions put us to work</h2>
+    <p class="kicker">Science is often the strategic plan's quietest line item — until
+      accreditation season. These are the problems divisions bring to us.</p>
+    <div class="focus-grid">
+      <div class="focus">
+        <h3>Science achievement and accreditation readiness</h3>
+        <p>Instruction aligned to the Science SOL and its practices — so performance
+          reflects teaching quality, not test-prep triage.</p>
+      </div>
+      <div class="focus">
+        <h3>A defensible professional-development investment</h3>
+        <p>A multi-year PD plan with a clear rationale you can present to your board,
+          in place of one-off workshop spending.</p>
+      </div>
+      <div class="focus">
+        <h3>Teacher growth and retention</h3>
+        <p>Science teachers who get meaningful, subject-specific support are teachers
+          who stay. Generic PD reaches no one.</p>
+      </div>
+      <div class="focus">
+        <h3>Consistency across schools</h3>
+        <p>Every student in the division deserves the same quality of science
+          instruction — not just the schools with a strong department chair.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="serif">The engagement model</h2>
+    <p class="kicker">Three phases, scoped to your division's size and calendar.</p>
+    <div class="model">
+      <div class="step">
+        <span class="num">PHASE 01</span>
+        <h3 class="serif">Assess</h3>
+        <p>A structured review of your science program: instructional materials, PD
+          history, SOL alignment, and what your teachers and coordinators say they need.</p>
+      </div>
+      <div class="step">
+        <span class="num">PHASE 02</span>
+        <h3 class="serif">Plan</h3>
+        <p>A multi-year professional-development roadmap and resource plan, built with
+          your instructional leadership and ready to defend line by line.</p>
+      </div>
+      <div class="step">
+        <span class="num">PHASE 03</span>
+        <h3 class="serif">Build</h3>
+        <p>Direct work with teacher teams and science leads to put the plan into
+          classrooms — so capacity stays in the division after the engagement ends.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="serif">The principal consultant</h2>
+    <p class="kicker">Myra Thayer has led science education at every level of Virginia's
+      public school system.</p>
+    <div class="about">
+      <div class="headshot" role="img" aria-label="Photo placeholder: professional headshot">
+        Photo —<br>professional headshot<br><span style="text-transform:none; letter-spacing:0;">[PLACEHOLDER: Myra's photo]</span>
+      </div>
+      <div>
+        <p>She serves as a science specialist at the <strong>Virginia Department of
+          Education</strong>, where her portfolio includes support for the Science Standards
+          of Learning and the Commonwealth's approved-textbook and correlation process.</p>
+        <p>Before joining the state, she worked in the science office of <strong>Fairfax
+          County Public Schools</strong> — one of the largest school districts in the United
+          States — where she directed the regional science fair and led division-wide
+          reviews of high-school science course materials.</p>
+        <p>She founded Curiosity Classrooms to bring that district- and state-level
+          perspective directly to Virginia divisions as an independent thought partner.</p>
+        <p class="cred-line"><span class="ph">[PLACEHOLDER: degrees incl. doctorate,
+          licensure, years of service, professional association roles — confirm before
+          publication]</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="briefing">
+  <div class="wrap">
+    <div class="cta-panel">
+      <h2 class="serif">Request a briefing</h2>
+      <p>A 30-minute conversation about your division's science program — where it stands,
+        what an engagement could look like, and whether we're the right fit. No
+        obligation, and your director of instruction is welcome at the table.</p>
+      <div class="btn-row">
+        <a class="btn primary" href="mailto:PLACEHOLDER@example.com?subject=Briefing%20request%20%E2%80%94%20Curiosity%20Classrooms">Request a briefing</a>
+        <span class="ph">[PLACEHOLDER: one-page overview PDF + scheduling link]</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>The Curiosity Classrooms LLC</strong> · Reston, Virginia
+      <span class="ph">[CONFIRM: registration details]</span> ·
+      <span class="ph">[PLACEHOLDER: business email]</span></p>
+    <p>Curiosity Classrooms is an independent consultancy and is not affiliated with, or
+      endorsed by, the Virginia Department of Education or Fairfax County Public Schools.</p>
+    <p>Prototype B of 3 — superintendent angle · creative-direction bake-off, not a production site.</p>
+  </div>
+</footer>
+
+</body>
+</html>

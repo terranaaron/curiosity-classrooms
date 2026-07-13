@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Curiosity Classrooms · Prototype C — Science Lead Angle</title>
+</head>
+<body>
+<style>
+  :root {
+    --paper: #F3F6F2;
+    --card: #FFFFFF;
+    --ink: #22302B;
+    --body: #3D4C46;
+    --muted: #6C7C74;
+    --green: #1F5B49;
+    --green-soft: #E2ECE5;
+    --slate: #4C6172;
+    --amber: #DC9E2F;
+    --line: #D5DED6;
+    --ph-bg: #F6EDD4;
+    --ph-edge: #B8892F;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #121B17; --card: #1A2721; --ink: #E7EEE7; --body: #C0CDC4;
+      --muted: #8FA096; --green: #6FC2A2; --green-soft: #1E2E27;
+      --slate: #9FB4C4; --amber: #E5B254; --line: #2A3A32;
+      --ph-bg: #33291A; --ph-edge: #E5B254;
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: #F3F6F2; --card: #FFFFFF; --ink: #22302B; --body: #3D4C46;
+    --muted: #6C7C74; --green: #1F5B49; --green-soft: #E2ECE5; --slate: #4C6172;
+    --amber: #DC9E2F; --line: #D5DED6; --ph-bg: #F6EDD4; --ph-edge: #B8892F;
+  }
+  :root[data-theme="dark"] {
+    --paper: #121B17; --card: #1A2721; --ink: #E7EEE7; --body: #C0CDC4;
+    --muted: #8FA096; --green: #6FC2A2; --green-soft: #1E2E27; --slate: #9FB4C4;
+    --amber: #E5B254; --line: #2A3A32; --ph-bg: #33291A; --ph-edge: #E5B254;
+  }
+
+  * { box-sizing: border-box; }
+  body { background: var(--paper); color: var(--body); margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 17px; line-height: 1.65; }
+  .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; }
+
+  a { color: var(--green); }
+  a:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  header.top { display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 22px 0; flex-wrap: wrap; }
+  .wordmark { font-weight: 700; font-size: 1.2rem; color: var(--ink); letter-spacing: -0.01em; }
+  .wordmark .tick { color: var(--amber); }
+  .proto-badge { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); border: 1px solid var(--line); padding: 4px 10px; }
+
+  .eyebrow { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.74rem;
+    color: var(--slate); margin: 0 0 18px; }
+
+  .hero { padding: 56px 0 60px; display: grid; grid-template-columns: 1.25fr 0.75fr;
+    gap: 48px; align-items: start; }
+  .hero h1 { color: var(--ink); font-family: system-ui, "Segoe UI", sans-serif;
+    font-size: clamp(2rem, 4.6vw, 3.1rem); font-weight: 700; letter-spacing: -0.02em;
+    line-height: 1.1; margin: 0 0 22px; text-wrap: balance; }
+  .hero p.lede { font-size: 1.1rem; margin: 0 0 16px; max-width: 33em; }
+  .hero p.lede strong { color: var(--ink); }
+  .sig { margin: 22px 0 30px; color: var(--muted); font-size: 0.95rem; }
+  .sig b { color: var(--ink); display: block; font-size: 1.02rem; }
+
+  .btn-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .btn { display: inline-block; padding: 12px 26px; text-decoration: none;
+    font-weight: 600; font-size: 0.98rem; border-radius: 6px; }
+  .btn.primary { background: var(--green); color: var(--paper); }
+  :root[data-theme="dark"] .btn.primary { color: #10201A; }
+  @media (prefers-color-scheme: dark) { .btn.primary { color: #10201A; } }
+  :root[data-theme="light"] .btn.primary { color: #F3F6F2; }
+  .btn.quiet { color: var(--ink); border: 1.5px solid var(--line); background: var(--card); }
+
+  .carry-card { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 26px 28px; position: relative; }
+  .carry-card::before { content: "ON YOUR DESK THIS MONTH"; position: absolute; top: -10px; left: 20px;
+    background: var(--amber); color: #241A05; font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+    font-size: 0.62rem; letter-spacing: 0.14em; padding: 3px 10px; border-radius: 3px; font-weight: 700; }
+  .carry-card ul { margin: 8px 0 0; padding-left: 0; list-style: none; }
+  .carry-card li { padding: 9px 0 9px 26px; border-bottom: 1px dashed var(--line);
+    font-size: 0.94rem; position: relative; }
+  .carry-card li:last-child { border-bottom: 0; }
+  .carry-card li::before { content: "☐"; position: absolute; left: 2px; color: var(--slate); }
+
+  section { padding: 54px 0; }
+  section.band { background: var(--green-soft); border-block: 1px solid var(--line); }
+  h2 { color: var(--ink); font-size: clamp(1.45rem, 3vw, 1.95rem); font-weight: 700;
+    letter-spacing: -0.015em; margin: 0 0 10px; text-wrap: balance; }
+  .kicker { color: var(--muted); max-width: 44em; margin: 0 0 36px; }
+
+  .roadmap { position: relative; margin-left: 10px; padding-left: 38px;
+    border-left: 2px dashed var(--slate); display: grid; gap: 30px; }
+  .milestone { position: relative; background: var(--card); border: 1px solid var(--line);
+    border-radius: 10px; padding: 22px 26px; max-width: 640px; }
+  .milestone::before { content: ""; position: absolute; left: -48px; top: 26px;
+    width: 16px; height: 16px; border-radius: 50%; background: var(--amber);
+    border: 3px solid var(--paper); }
+  .milestone .m-label { font-size: 0.68rem; letter-spacing: 0.16em; color: var(--slate);
+    text-transform: uppercase; }
+  .milestone h3 { color: var(--ink); margin: 6px 0 8px; font-size: 1.12rem; }
+  .milestone p { margin: 0; font-size: 0.95rem; }
+  .roadmap-note { color: var(--muted); font-size: 0.88rem; font-style: italic; margin-top: 24px; }
+
+  .chair { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .chair-item { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--green);
+    border-radius: 8px; padding: 20px 22px; }
+  .chair-item .m-label { font-size: 0.66rem; letter-spacing: 0.16em; color: var(--slate); text-transform: uppercase; }
+  .chair-item p { margin: 8px 0 0; font-size: 0.95rem; }
+
+  .approach { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
+  .approach p { margin: 0 0 14px; }
+  .dim-figure { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 26px; }
+  .dim-figure svg { width: 100%; height: auto; display: block; }
+  .art-note { font-size: 0.72rem; color: var(--muted); text-transform: uppercase;
+    letter-spacing: 0.1em; margin-top: 12px; }
+
+  .cta-card { background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--amber);
+    border-radius: 10px; padding: 40px 42px; }
+  .cta-card p { max-width: 42em; }
+
+  .ph { background: var(--ph-bg); border: 1.5px dashed var(--ph-edge); border-radius: 4px;
+    padding: 1px 7px; font-family: ui-monospace, Consolas, monospace; font-size: 0.8em; }
+
+  footer { border-top: 1px solid var(--line); padding: 34px 0 50px; color: var(--muted); font-size: 0.84rem; }
+  footer p { margin: 6px 0; max-width: 62em; }
+
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; gap: 36px; }
+    .approach { grid-template-columns: 1fr; }
+    .cta-card { padding: 28px 22px; }
+  }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="wordmark">Curiosity Classrooms <span class="tick mono">//</span> <span style="font-weight:400; font-size:0.85em; color:var(--muted);">planning partner to division science leaders</span></div>
+    <div class="proto-badge mono">Prototype C · Science-lead angle</div>
+  </header>
+
+  <div class="hero">
+    <div>
+      <p class="eyebrow mono">For division science coordinators &amp; leads · Virginia</p>
+      <h1>A thought partner who's sat in your chair.</h1>
+      <p class="lede">You're carrying the science program for an entire division — the PD
+        calendar, the adoption cycle, the SOL crosswalk, the email from the middle school
+        that needs kits by Tuesday. <strong>You shouldn't have to think it through
+        alone.</strong></p>
+      <p class="lede">I've done this work from inside one of the country's largest
+        districts and from inside the state department. Now I do it beside people like
+        you.</p>
+      <div class="sig">
+        <b>Myra Thayer</b>
+        Founder, Curiosity Classrooms · Reston, Virginia
+      </div>
+      <div class="btn-row">
+        <a class="btn primary" href="#call">Book a thought-partner call</a>
+        <a class="btn quiet" href="#ways">How we'd work together</a>
+      </div>
+    </div>
+    <div class="carry-card" aria-label="The kinds of tasks on a division science lead's desk">
+      <ul>
+        <li>Draft next year's K-12 science PD calendar</li>
+        <li>Textbook adoption committee — materials screening</li>
+        <li>SOL curriculum framework crosswalk, grades 6-8</li>
+        <li>Justify science PD budget line to cabinet</li>
+        <li>Find a peer who gets it</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<section class="band" id="ways">
+  <div class="wrap">
+    <h2>Ways we might work together</h2>
+    <p class="kicker">A typical engagement arc — though your year, your priorities, and
+      your budget set the order and the scope.</p>
+    <div class="roadmap">
+      <div class="milestone">
+        <span class="m-label mono">01 · See clearly</span>
+        <h3>Division science program audit</h3>
+        <p>A structured look at instruction, materials, assessment data, and teacher
+          voice across your schools — so decisions start from what's true, not what's
+          loudest.</p>
+      </div>
+      <div class="milestone">
+        <span class="m-label mono">02 · Plan the years, not the workshop</span>
+        <h3>Multi-year PD roadmap</h3>
+        <p>A professional-development plan you can defend line by line — sequenced,
+          costed, and tied to the Science SOL and your division's strategic plan.</p>
+      </div>
+      <div class="milestone">
+        <span class="m-label mono">03 · Choose materials that teach</span>
+        <h3>Resource &amp; adoption guidance</h3>
+        <p>I've run materials reviews at district scale and supported the correlation
+          process at the state level. Let's make your next adoption serve inquiry, not
+          shelf space.</p>
+      </div>
+      <div class="milestone">
+        <span class="m-label mono">04 · Build it into classrooms</span>
+        <h3>Teacher-team coaching</h3>
+        <p>Direct work with your teacher teams to make classrooms curiosity-driven across
+          all three dimensions — so the plan survives contact with fourth period.</p>
+      </div>
+    </div>
+    <p class="roadmap-note">Also available à la carte: a standing monthly thinking session —
+      one hour, your agenda.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Been in the chair</h2>
+    <p class="kicker">Not a vendor with a slide deck. A colleague who has owned this work
+      at district and state level.</p>
+    <div class="chair">
+      <div class="chair-item">
+        <span class="m-label mono">Fairfax County Public Schools · Science Office</span>
+        <p>Led division-wide reviews of high-school science course materials and directed
+          the FCPS regional science fair — in one of the largest districts in the country.</p>
+      </div>
+      <div class="chair-item">
+        <span class="m-label mono">Virginia Department of Education</span>
+        <p>Science specialist supporting the Science Standards of Learning and the
+          Commonwealth's approved-textbook and correlation process.</p>
+      </div>
+      <div class="chair-item">
+        <span class="m-label mono">Classroom &amp; credentials</span>
+        <p><span class="ph">[PLACEHOLDER: classroom teaching history, degrees incl.
+          doctorate, licensure, VAST/NSTA roles — confirm with Myra]</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="approach">
+      <div>
+        <h2>What I mean by a curiosity classroom</h2>
+        <p>A classroom where students <em>do</em> science — where the practices, the
+          crosscutting concepts, and the core ideas show up together because students are
+          investigating something they actually want to figure out.</p>
+        <p>You already know the research. The gap is implementation at division scale:
+          PD that changes Tuesday's lesson, materials that support inquiry instead of
+          fighting it, and teachers who feel backed rather than evaluated.</p>
+        <p style="margin-bottom:0;">That gap is the whole business.</p>
+      </div>
+      <figure style="margin:0;">
+        <div class="dim-figure">
+          <svg viewBox="0 0 300 170" role="img" aria-label="Diagram: three overlapping circles labeled practices, crosscutting concepts, and core ideas, overlapping at student curiosity">
+            <circle cx="105" cy="70" r="58" fill="none" stroke="var(--green)" stroke-width="2"/>
+            <circle cx="195" cy="70" r="58" fill="none" stroke="var(--slate)" stroke-width="2"/>
+            <circle cx="150" cy="112" r="58" fill="none" stroke="var(--amber)" stroke-width="2"/>
+            <text x="72" y="46" font-size="10" fill="var(--green)" font-family="Consolas, monospace">PRACTICES</text>
+            <text x="178" y="46" font-size="10" fill="var(--slate)" font-family="Consolas, monospace">CONCEPTS</text>
+            <text x="124" y="160" font-size="10" fill="var(--amber)" font-family="Consolas, monospace">CORE IDEAS</text>
+            <text x="150" y="88" font-size="9" text-anchor="middle" fill="var(--ink)" font-family="Consolas, monospace">STUDENT</text>
+            <text x="150" y="99" font-size="9" text-anchor="middle" fill="var(--ink)" font-family="Consolas, monospace">CURIOSITY</text>
+          </svg>
+        </div>
+        <figcaption class="art-note">Figure — the three dimensions, overlapping at student curiosity</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="call">
+  <div class="wrap">
+    <div class="cta-card">
+      <h2>Book a thought-partner call</h2>
+      <p>Forty-five minutes, no pitch. Bring the thing you're wrestling with — the PD
+        calendar, the adoption, the framework rollout — and let's think it through
+        together. If I'm not the right help, I'll say so and point you somewhere better.</p>
+      <div class="btn-row">
+        <a class="btn primary" href="mailto:PLACEHOLDER@example.com?subject=Thought-partner%20call">Email me to set it up</a>
+        <span class="ph">[PLACEHOLDER: scheduling link — Calendly or similar]</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>The Curiosity Classrooms LLC</strong> · Reston, Virginia
+      <span class="ph">[CONFIRM: registration details]</span> ·
+      <span class="ph">[PLACEHOLDER: business email]</span></p>
+    <p>Curiosity Classrooms is an independent consultancy and is not affiliated with, or
+      endorsed by, the Virginia Department of Education or Fairfax County Public Schools.</p>
+    <p>Prototype C of 3 — science-lead angle · creative-direction bake-off, not a production site.</p>
+  </div>
+</footer>
+
+</body>
+</html>
