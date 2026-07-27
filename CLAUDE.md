@@ -41,6 +41,16 @@ Virginia."
 - `curiosityclassroomsva.com` — was available (fallback).
 - `curiosityclassrooms.com` — held by an unrelated party since 2023.
 
+## Next up (parked 2026-07-27)
+
+1. **Myra's decisions:** direction pick (A/B/C/D or blend) · service-menu reaction
+   (cross out / star) · Curiosity Instructor name + $199/yr price · the open-questions
+   list (credentials, headshot, domain confirmation, business email, scheduling link).
+2. **Aaron ⇄ Claude: discuss potential skills to deploy for this project** —
+   project-level `.claude/skills/` candidates: deploy-and-verify-Pages loop,
+   research-refresh, Myra-open-questions tracker, prototype-consistency checker.
+3. Phase 2 (production site) starts after the direction pick — plan already in this file.
+
 ## Status update (2026-07-27)
 
 Option D round 2 per Aaron: (1) **"Intro call"** replaces "discovery call" site-wide
