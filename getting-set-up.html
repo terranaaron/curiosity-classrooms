@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Curiosity Classrooms — the calm setup checklist</title>
+</head>
+<body>
+<style>
+  :root {
+    --paper: #F8F5F0;
+    --card: #FFFFFF;
+    --ink: #2E2634;
+    --body: #4E4657;
+    --muted: #7C7386;
+    --plum: #6C3D66;
+    --plum-deep: #57314F;
+    --plum-soft: #F0E4EE;
+    --teal: #0E7C7B;
+    --green: #1F5B49;
+    --copper: #A8762E;
+    --line: #E0D8DC;
+    --done: #8A9B8E;
+    --ph-bg: #F6EDD4;
+    --ph-edge: #B8892F;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #191420; --card: #241D2C; --ink: #EFE9F1; --body: #C6BECF;
+      --muted: #948B9E; --plum: #C48EBC; --plum-deep: #D5A9CE; --plum-soft: #2E2237;
+      --teal: #56BDB4; --green: #6FC2A2; --copper: #C9974B; --line: #382F42;
+      --done: #7A8B7E; --ph-bg: #322718; --ph-edge: #C9974B;
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: #F8F5F0; --card: #FFFFFF; --ink: #2E2634; --body: #4E4657;
+    --muted: #7C7386; --plum: #6C3D66; --plum-deep: #57314F; --plum-soft: #F0E4EE;
+    --teal: #0E7C7B; --green: #1F5B49; --copper: #A8762E; --line: #E0D8DC;
+    --done: #8A9B8E; --ph-bg: #F6EDD4; --ph-edge: #B8892F;
+  }
+  :root[data-theme="dark"] {
+    --paper: #191420; --card: #241D2C; --ink: #EFE9F1; --body: #C6BECF;
+    --muted: #948B9E; --plum: #C48EBC; --plum-deep: #D5A9CE; --plum-soft: #2E2237;
+    --teal: #56BDB4; --green: #6FC2A2; --copper: #C9974B; --line: #382F42;
+    --done: #7A8B7E; --ph-bg: #322718; --ph-edge: #C9974B;
+  }
+
+  * { box-sizing: border-box; }
+  body { background: var(--paper); color: var(--body); margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 17px; line-height: 1.68; }
+  .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; }
+
+  a { color: var(--plum-deep); }
+  a:focus-visible, input:focus-visible { outline: 3px solid var(--copper); outline-offset: 2px; }
+
+  .wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+  header.top { display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 22px 0; flex-wrap: wrap; }
+  .wordmark { font-weight: 700; font-size: 1.1rem; color: var(--ink); }
+  .wordmark span.sub { font-weight: 400; font-size: 0.85em; color: var(--muted); }
+  .badge { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); border: 1px solid var(--line); padding: 4px 10px; }
+
+  h1 { color: var(--ink); font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 700;
+    letter-spacing: -0.02em; line-height: 1.15; margin: 28px 0 18px; text-wrap: balance; }
+
+  .promise { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--plum);
+    border-radius: 10px; padding: 22px 26px; margin: 0 0 14px; }
+  .promise p { margin: 0 0 10px; }
+  .promise p:last-child { margin: 0; }
+  .promise b { color: var(--ink); }
+
+  .progress { color: var(--muted); font-size: 0.9rem; margin: 18px 0 34px; }
+  .progress b { color: var(--plum-deep); }
+
+  .phase { margin: 0 0 40px; }
+  .phase-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--copper); font-weight: 700; margin: 0 0 4px; }
+  .phase h2 { color: var(--ink); font-size: 1.4rem; font-weight: 700; margin: 0 0 6px;
+    letter-spacing: -0.01em; }
+  .phase .when { color: var(--muted); font-size: 0.9rem; font-style: italic; margin: 0 0 16px; }
+
+  ul.check { list-style: none; margin: 0; padding: 0; }
+  ul.check li { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 16px 18px 16px 16px; margin: 0 0 10px; display: grid;
+    grid-template-columns: 32px 1fr; gap: 12px; align-items: start; }
+  ul.check input[type="checkbox"] { width: 22px; height: 22px; margin-top: 3px;
+    accent-color: var(--plum); cursor: pointer; }
+  ul.check label { cursor: pointer; }
+  ul.check li.done-item { border-color: var(--done); }
+  ul.check li.done-item input { accent-color: var(--done); }
+  ul.check .t { color: var(--ink); font-weight: 600; }
+  ul.check .est { font-size: 0.78rem; color: var(--muted); font-weight: 400;
+    white-space: nowrap; }
+  ul.check p { margin: 4px 0 0; font-size: 0.92rem; }
+  ul.check li:has(input:checked) { opacity: 0.62; }
+  ul.check li:has(input:checked) .t { text-decoration: line-through; text-decoration-thickness: 1.5px; }
+
+  .who { display: inline-block; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em;
+    border-radius: 999px; padding: 2px 10px; border: 1.5px solid var(--teal);
+    color: var(--teal); vertical-align: 2px; margin-left: 6px; }
+  .who.aaron { border-color: var(--copper); color: var(--copper); }
+
+  .aside { background: var(--plum-soft); border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px 24px; margin: 16px 0; font-size: 0.94rem; }
+  .aside b { color: var(--ink); }
+  .aside p { margin: 0 0 10px; }
+  .aside p:last-child { margin: 0; }
+  .aside ul { margin: 8px 0 0; padding-left: 20px; }
+  .aside li { padding: 3px 0; }
+
+  .ph { background: var(--ph-bg); border: 1.5px dashed var(--ph-edge); border-radius: 4px;
+    padding: 1px 7px; font-family: ui-monospace, Consolas, monospace; font-size: 0.8em; }
+
+  .breathe { text-align: center; color: var(--muted); font-size: 0.92rem; font-style: italic;
+    margin: 44px 0; }
+
+  footer { border-top: 1px solid var(--line); padding: 30px 0 50px; color: var(--muted);
+    font-size: 0.84rem; margin-top: 20px; }
+  footer p { margin: 6px 0; }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="wordmark">Curiosity Classrooms <span class="sub">· for Myra</span></div>
+    <div class="badge mono">The calm setup checklist</div>
+  </header>
+
+  <h1>Starting a business is mostly small errands.<br>Here they are, in order.</h1>
+
+  <div class="promise">
+    <p><b>Four promises about this page:</b></p>
+    <p>1. Nothing here is hard. Most items are 15–30 minutes, and none of them require
+      you to be "technical."</p>
+    <p>2. <b>Nothing is permanent.</b> Every tool on this page can be swapped later without
+      losing anything. Picking one is not a commitment; it's a starting point.</p>
+    <p>3. The phases are ordered by <b>when you actually need each thing</b>. Everything below
+      the phase you're in can be completely ignored until you get there.</p>
+    <p>4. Items tagged <span class="who aaron">AARON</span> are his errands, not yours.
+      Your items are tagged <span class="who">MYRA</span>.</p>
+  </div>
+
+  <p class="progress" id="progress">Checked items save on this device — close the page and
+    come back anytime.</p>
+
+  <!-- PHASE 0 -->
+  <div class="phase">
+    <p class="phase-label mono">Phase 0</p>
+    <h2>Already done (yes, really)</h2>
+    <p class="when">Read this list first. You are further along than it feels.</p>
+    <ul class="check">
+      <li class="done-item"><input type="checkbox" id="p0-llc" checked>
+        <label for="p0-llc"><span class="t">The Curiosity Classrooms LLC exists.</span>
+        <p>The hardest paperwork step — forming the company — is behind you.</p></label></li>
+      <li class="done-item"><input type="checkbox" id="p0-proto" checked>
+        <label for="p0-proto"><span class="t">Four website prototypes are live for your review.</span>
+        <p>Most consultants launch with far less thinking than has already gone into these.</p></label></li>
+      <li class="done-item"><input type="checkbox" id="p0-menu" checked>
+        <label for="p0-menu"><span class="t">A researched service menu is drafted, waiting for your reaction.</span>
+        <p>Option D on the review site. Your only job there: cross out what you'd never
+          sell, star what feels most like you.</p></label></li>
+      <li><input type="checkbox" id="p0-domain">
+        <label for="p0-domain"><span class="t">Confirm you own thecuriosityclassrooms.com
+          <span class="est">· 10 min</span></span> <span class="who">MYRA</span>
+        <p>A domain by that exact name was registered in January 2026 — almost certainly you.
+          Search your email for a receipt from Network Solutions. If you find it, this box
+          is a free check-off.</p></label></li>
+    </ul>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase">
+    <p class="phase-label mono">Phase 1</p>
+    <h2>Be reachable</h2>
+    <p class="when">Do these first — about an hour total. Everything else builds on them.</p>
+    <ul class="check">
+      <li><input type="checkbox" id="p1-email">
+        <label for="p1-email"><span class="t">Set up a business email address
+          <span class="est">· 20 min</span></span> <span class="who">MYRA</span>
+          <span class="who aaron">AARON HELPS</span>
+        <p>Something like <i>myra@thecuriosityclassrooms.com</i> (Google Workspace, about
+          $8/month) — or, for now, a free forwarding address that lands in your personal
+          inbox. The only rule: business email is never your work (.gov) address. Aaron can
+          set this up with you in one sitting.</p></label></li>
+      <li><input type="checkbox" id="p1-contact">
+        <label for="p1-contact"><span class="t">Decide where "Contact us" goes
+          <span class="est">· 10 min</span></span> <span class="who">MYRA</span>
+        <p>A contact page is just a small form (name, email, message) that lands in your
+          inbox. Free tools like Tally make this a ten-minute job — Aaron wires it into the
+          site. Your only decision: which email address receives it (the one from the item
+          above).</p></label></li>
+      <li><input type="checkbox" id="p1-form">
+        <label for="p1-form"><span class="t">Build and connect the contact form</span>
+          <span class="who aaron">AARON</span>
+        <p>Tally form → your inbox → "Contact" links on the site. Not your errand.</p></label></li>
+    </ul>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase">
+    <p class="phase-label mono">Phase 2</p>
+    <h2>Let people book you</h2>
+    <p class="when">About an hour, and the basic version is free.</p>
+    <ul class="check">
+      <li><input type="checkbox" id="p2-cal">
+        <label for="p2-cal"><span class="t">Create a free Calendly account and connect your
+          calendar <span class="est">· 20 min</span></span> <span class="who">MYRA</span>
+        <p>Calendly is a page where people pick a time on your calendar — no email
+          back-and-forth. You connect your own calendar once, and it automatically refuses
+          times you're busy. Double-booking becomes impossible.</p></label></li>
+      <li><input type="checkbox" id="p2-event">
+        <label for="p2-event"><span class="t">Make one event type: "Discovery call — 30 minutes"
+          <span class="est">· 15 min</span></span> <span class="who">MYRA</span>
+        <p>Just one. Pick two or three windows a week when you're willing to take calls
+          (say, Tuesday and Thursday afternoons). You can add more event types later — or
+          never.</p></label></li>
+      <li><input type="checkbox" id="p2-link">
+        <label for="p2-link"><span class="t">Put the booking link behind the website buttons</span>
+          <span class="who aaron">AARON</span>
+        <p>Every "Book a discovery call" button on the site points at your Calendly page.
+          One line of code. Send Aaron the link and forget about it.</p></label></li>
+      <li><input type="checkbox" id="p2-stripe">
+        <label for="p2-stripe"><span class="t">Later — much later: taking card payments through
+          Calendly + Stripe <span class="est">· 45 min, someday</span></span>
+        <p>Stripe is the standard tool that lets a small business accept cards. Calendly can
+          ask for payment when someone books — you connect Stripe once under
+          <i>Integrations</i>, then add a price to any paid session type (this one feature
+          needs Calendly's Standard plan, about $10/month — the free plan covers everything
+          else on this page). <b>Here's the calming part:</b> school divisions don't pay
+          by credit card anyway — they pay by purchase order and check, like they always
+          have. Stripe only matters the day you decide to sell something bookable to
+          individuals. That day may be months away, or never. Skip guilt-free.</p></label></li>
+    </ul>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase">
+    <p class="phase-label mono">Phase 3</p>
+    <h2>Paperwork that makes you official</h2>
+    <p class="when">Spread over two relaxed weeks. Each item is small; together they make
+      divisions comfortable paying you.</p>
+    <ul class="check">
+      <li><input type="checkbox" id="p3-ein">
+        <label for="p3-ein"><span class="t">Get an EIN, if the LLC doesn't have one yet
+          <span class="est">· 15 min, free</span></span> <span class="who">MYRA</span>
+        <p>A federal tax ID number for the business — free, instant, directly on
+          <a href="https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number">irs.gov</a>.
+          (If you formed the LLC with help, you may already have one. Check your formation
+          papers.)</p></label></li>
+      <li><input type="checkbox" id="p3-bank">
+        <label for="p3-bank"><span class="t">Open a business checking account
+          <span class="est">· one bank visit</span></span> <span class="who">MYRA</span>
+        <p>Bring the EIN and LLC papers. Keeping business money separate from personal is
+          the single habit that makes taxes painless later.</p></label></li>
+      <li><input type="checkbox" id="p3-w9">
+        <label for="p3-w9"><span class="t">Fill out a W-9 once, save it as a PDF
+          <span class="est">· 10 min</span></span> <span class="who">MYRA</span>
+        <p>Every division will ask for this form before they can pay you. Having it ready
+          to attach makes you look like you've done this a hundred times.</p></label></li>
+      <li><input type="checkbox" id="p3-ins">
+        <label for="p3-ins"><span class="t">Get a general-liability insurance quote
+          <span class="est">· 30 min online</span></span> <span class="who">MYRA</span>
+        <p>Divisions typically require proof of liability insurance (often $1M) before you
+          work on school grounds. Solo-consultant policies are bought online in one sitting
+          and generally run a few hundred dollars a year. Get the quote now; buy when the
+          first engagement is near.</p></label></li>
+      <li><input type="checkbox" id="p3-agreement">
+        <label for="p3-agreement"><span class="t">Create your services agreement — this is
+          the "TOS" that actually matters <span class="est">· template + one lawyer hour</span></span>
+          <span class="who">MYRA</span>
+        <p>For a consultancy, the important document isn't website fine print — it's the
+          two-page agreement each client signs: what you'll do, what they get, fees and
+          travel, what happens when someone reschedules, your teaching materials stay yours
+          (clients get the right to use them), you're an independent contractor, and you
+          treat student information with care. Start from a reputable template, then pay a
+          lawyer for <b>one hour</b> to review it — you'll reuse it for years. Free help
+          getting there: <a href="https://www.score.org/find-mentor/request-mentor">SCORE
+          mentors</a> and the <a href="https://www.virginiasbdc.org/">Virginia SBDC</a>
+          advise small businesses at no charge.</p></label></li>
+      <li><input type="checkbox" id="p3-policies">
+        <label for="p3-policies"><span class="t">Website privacy policy &amp; terms page</span>
+          <span class="who aaron">AARON</span>
+        <p>Because the contact form and Calendly collect names and emails, the site needs a
+          short privacy policy and terms page. These are generated from a reputable template
+          service and dropped into the footer. Not your errand.</p></label></li>
+      <li><input type="checkbox" id="p3-swam">
+        <label for="p3-swam"><span class="t">Look into Virginia's SWaM certification
+          <span class="est">· 30 min to read, free to apply</span></span> <span class="who">MYRA</span>
+        <p>Virginia certifies <b>S</b>mall, <b>W</b>omen-owned, <b>a</b>nd <b>M</b>inority-owned
+          businesses — and public bodies, including school divisions, track how much they buy
+          from certified firms. As a woman-owned Virginia LLC (51%+ owned and managed by you)
+          you likely qualify; applying is free, through the Virginia Department of Small
+          Business and Supplier Diversity:
+          <a href="https://sbsd.virginia.gov/certification-division/swam/">sbsd.virginia.gov</a>.</p></label></li>
+      <li><input type="checkbox" id="p3-bg">
+        <label for="p3-bg"><span class="t">Know this one in advance: background checks
+          <span class="est">· 0 min now</span></span>
+        <p>Divisions often require visiting consultants to complete their background-check
+          or fingerprinting process before classroom visits. It's routine, they arrange it,
+          and it's a sign the engagement is real — not a hoop to worry about today.</p></label></li>
+    </ul>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase">
+    <p class="phase-label mono">Phase 4</p>
+    <h2>The website</h2>
+    <p class="when">Your part is only decisions. The building is Aaron's — he's shipped
+      several of these.</p>
+    <ul class="check">
+      <li><input type="checkbox" id="p4-pick">
+        <label for="p4-pick"><span class="t">Pick a direction from the four prototypes
+          <span class="est">· one cup of coffee</span></span> <span class="who">MYRA</span>
+        <p>A, B, C, D — or a combination ("C's voice with D's service menu" is a perfectly
+          good answer). There is no wrong choice; it's a starting point, not a tattoo.</p></label></li>
+      <li><input type="checkbox" id="p4-questions">
+        <label for="p4-questions"><span class="t">Answer the open-questions list
+          <span class="est">· 30 min</span></span> <span class="who">MYRA</span>
+        <p>The amber boxes on the prototypes: credentials and degrees, classroom teaching
+          history, association roles, a headshot you like, the business email, scheduling
+          preference. Every answer turns an amber box into a finished sentence.</p></label></li>
+      <li><input type="checkbox" id="p4-react">
+        <label for="p4-react"><span class="t">React to the Option D service menu
+          <span class="est">· 20 min with a pen</span></span> <span class="who">MYRA</span>
+        <p>Cross out anything you'd never want to sell. Star the two or three you'd happily
+          do next month. That's the whole assignment — the menu gets rebuilt around your
+          marks.</p></label></li>
+      <li><input type="checkbox" id="p4-build">
+        <label for="p4-build"><span class="t">Build the production site, connect the domain,
+          wire everything together</span> <span class="who aaron">AARON</span>
+        <p>Site, domain, contact form, Calendly buttons, policy pages, search-engine
+          plumbing. Not your errand.</p></label></li>
+    </ul>
+  </div>
+
+  <p class="breathe">— Everything below this line is genuinely optional, and genuinely later. —</p>
+
+  <!-- PHASE 5 -->
+  <div class="phase">
+    <p class="phase-label mono">Phase 5</p>
+    <h2>Community — later, truly</h2>
+    <p class="when">Nothing to do now. Read when curious.</p>
+
+    <div class="aside">
+      <p><b>What Slack actually is, in one breath:</b> a private group-chat space for a
+        set of invited people, organized into topic "channels" (one for lesson ideas, one
+        for adoption questions, one for announcements). Think of it as a faculty lounge
+        that lives on your computer and phone. You would create a space, name it Curiosity
+        Classrooms, put your logo on it, and invite people — free to start.</p>
+      <p><b>The calm rule:</b> you don't need a community platform until roughly twenty
+        people keep asking to talk <i>to each other</i> — not just to you. Until that day,
+        your "community" is simpler and better: an email list people can join, plus a
+        monthly hour on Zoom.</p>
+      <p><b>The ladder</b> (climb one rung at a time, change your mind freely):</p>
+      <ul>
+        <li><b>Rung 1 — an email list.</b> A monthly note from you: one good idea, one
+          resource, one date. This is the whole community engine for year one.</li>
+        <li><b>Rung 2 — a monthly roundtable.</b> One Zoom hour, one topic, whoever comes.</li>
+        <li><b>Rung 3 — a Slack space</b>, when people want to keep talking between
+          roundtables. Free tier is plenty to start (note: it only shows the last ~90 days
+          of messages).</li>
+        <li><b>Rung 4 — a paid community platform</b> (Circle, Mighty Networks, Heartbeat —
+          roughly $50–90/month) if it thrives and you want a space that feels fully "yours,"
+          with your branding throughout. Moving a small, healthy community up a rung is a
+          weekend, not a crisis.</li>
+      </ul>
+    </div>
+
+    <ul class="check">
+      <li><input type="checkbox" id="p5-video">
+        <label for="p5-video"><span class="t">Optional: watch a short "what is Slack" video
+          <span class="est">· 10 min</span></span> <span class="who">MYRA</span>
+        <p>Just to make it un-mysterious. Slack's own short clips are the gentlest start —
+          begin with "Your quick start guide to Slack":
+          <a href="https://slack.com/help/articles/360059976673-Slack-video-tutorials">slack.com
+          video tutorials</a>.</p></label></li>
+      <li><input type="checkbox" id="p5-read">
+        <label for="p5-read"><span class="t">Optional: skim one community-building guide
+          <span class="est">· 20 min</span></span> <span class="who">MYRA</span>
+        <p>How warm, small communities are tended — by people who do it for a living. Pick
+          any one: the <a href="https://www.cmxhub.com/reports/the-cmx-guide-to-building-a-community">CMX
+          Guide to Building a Community</a> (free), Rosie Sherry's
+          <a href="https://medium.com/rosielandhq/a-guide-to-community-discovery-911a9f6706da">guide
+          to community discovery</a> (free), or — if a book feels cozier — <i>The Business of
+          Belonging</i> by David Spinks. And a real teacher-community example:
+          <a href="https://www.cmxhub.com/blog/the-cmx-community-engagement-cycle-a-case-study-and-model-for-building-vibrant-communities">how
+          Remind grew its educator community</a>.</p></label></li>
+    </ul>
+  </div>
+
+  <!-- PHASE 6 -->
+  <div class="phase">
+    <p class="phase-label mono">Phase 6</p>
+    <h2>Word of mouth, by design</h2>
+    <p class="when">Read only — this is a conversation for you and Aaron, not a task list.</p>
+    <div class="aside">
+      <p>Your three audiences already talk to each other — teachers to their science leads,
+        leads to their peers in other divisions, superintendents to other superintendents.
+        The plan is to make each of those conversations one click easier:</p>
+      <ul>
+        <li><b>Every reader gets a "forward this" tool.</b> The teacher page already drafts
+          an email to their science lead. The same trick works sideways: a lead forwarding
+          to a peer lead, a superintendent to a neighboring division.</li>
+        <li><b>The roundtable "+1 rule."</b> Every attendee may bring one colleague. The
+          gentlest referral engine there is — no one is selling anything, and the room
+          grows itself.</li>
+        <li><b>Rewards flow to schools, never to individuals.</b> Public-school employees
+          generally can't accept personal thank-you gifts — so a referral thank-you looks
+          like "a free workshop hour for your teachers," never a gift card. Gracious, and
+          keeps everyone comfortable.</li>
+        <li><b>Ask for the sentence, not the favor.</b> After a good engagement, request one
+          quotable sentence and permission to name the division. Testimonials do the
+          referring while you sleep.</li>
+        <li><b>Say yes to the conference stage.</b> One session at a state science-educators
+          conference reaches more leads than a year of cold emails.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="breathe">That's the whole business. Small errands, in order, with tea.</p>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p><strong>The Curiosity Classrooms LLC</strong> · Reston, Virginia</p>
+    <p>Prepared by Aaron, with research help. Everything on this page is a suggestion, not
+      homework — and every tool can be changed later.</p>
+    <p>Curiosity Classrooms is an independent consultancy and is not affiliated with, or
+      endorsed by, the Virginia Department of Education or Fairfax County Public Schools.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var KEY = "cc-setup-checklist";
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
+    var boxes = document.querySelectorAll('ul.check input[type="checkbox"]');
+    boxes.forEach(function (box) {
+      if (box.id in saved) box.checked = !!saved[box.id];
+      box.addEventListener("change", function () {
+        saved[box.id] = box.checked;
+        try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+        update();
+      });
+    });
+    var progress = document.getElementById("progress");
+    function update() {
+      var total = boxes.length, done = 0;
+      boxes.forEach(function (b) { if (b.checked) done++; });
+      progress.innerHTML = "<b>" + done + " of " + total + "</b> checked — they save on " +
+        "this device, so close the page and come back anytime. No rush.";
+    }
+    update();
+  })();
+</script>
+
+</body>
+</html>
