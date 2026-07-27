@@ -1,6 +1,6 @@
 # Service-menu research notes (Option D)
 
-Research basis for the packages proposed in `prototypes/curiosity-unified.html`
+Research basis for the packages proposed in `prototypes/unified/services.html`
 (researched 2026-07-26). Everything here is a **proposal for Myra's reaction**,
 modeled on how real science-PD consultancies package their work — nothing is a
 commitment until she says so.

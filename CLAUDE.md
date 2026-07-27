@@ -43,14 +43,23 @@ Virginia."
 
 ## Status update (2026-07-26)
 
-Added **Prototype D (unified)** — all three personas on one homepage ("three doors"),
-plus a researched service menu: 8 named packages grouped See clearly / Plan / Build /
-Sustain, each with per-engagement deliverables, a "one engagement, three desks" overlap
-section, and a "built to be buyable" strip (Title II-A framing, license-renewal
+Added **Prototype D (unified)** — after Aaron's feedback ("too text heavy, needs tabs
+for SEO"), rebuilt as a **five-page mini-site** in `prototypes/unified/` (shared
+`styles.css`): Home / Services / The Curiosity Classroom / About / Contact, with tab
+nav, photo placeholders, and a leadership callout for Myra on Home + About. Services
+page carries the researched menu: 8 packages grouped See clearly / Plan / Build /
+Sustain with per-engagement deliverables, "one engagement, three desks" overlap
+section, and "built to be buyable" strip (Title II-A framing, license-renewal
 documentation, small-purchase sizing). Research basis + sources in
-`docs/service-menu-notes.md`. The menu is a **proposal awaiting Myra's reaction**; the
-SIG-transition timeline on the page carries a CONFIRM marker. Index now shows four
+`docs/service-menu-notes.md`. Menu is a **proposal awaiting Myra's reaction**;
+SIG-transition timeline carries a CONFIRM marker. Pages keep `noindex` until
+production launch (unique titles/meta descriptions already in place). Index shows four
 options; A–C footers updated to "of 4".
+
+Also added `getting-set-up.html` — a calm business-setup checklist for Myra (Calendly,
+Stripe-later, TOS/services agreement, insurance, SWaM, community ladder, referral
+ideas), linked from the index footer. Facts verified 2026-07-26 (Calendly Standard
+plan req for Stripe, Slack free-tier 90-day history, SWaM via SBSD free).
 
 ## Status (2026-07-13)
 
