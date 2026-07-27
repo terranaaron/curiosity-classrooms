@@ -41,6 +41,17 @@ Virginia."
 - `curiosityclassroomsva.com` — was available (fallback).
 - `curiosityclassrooms.com` — held by an unrelated party since 2023.
 
+## Status update (2026-07-27)
+
+Option D round 2 per Aaron: (1) **"Intro call"** replaces "discovery call" site-wide
+(researched: less seller-coded for risk-averse K-12 buyers; runner-up "consultation");
+(2) new **How It Works tab** — six engagement phases + illustrative month-by-month
+school-year arc (testing windows protected); (3) **Curiosity Instructor membership**
+proposed at $199/yr on Services (`#instructor`) — solo-sustainable bundle, explicit
+not-a-certification disclaimer (FTC + VDOE-employment guardrail); (4) hover actions +
+booking callouts (nav pill, floating pill, per-package "ask" links, callout lines).
+Research basis appended to `docs/service-menu-notes.md`.
+
 ## Status update (2026-07-26)
 
 Added **Prototype D (unified)** — after Aaron's feedback ("too text heavy, needs tabs

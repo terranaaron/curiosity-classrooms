@@ -47,6 +47,33 @@ commitment until she says so.
 - **Guaranteed outcomes / testimonials / client names** — facts discipline: nothing
   invented, nothing implied.
 
+## Added 2026-07-27: intro call, engagement page, teacher membership
+
+**"Intro call" (not "discovery call").** Research verdict: "discovery call" is
+seller-coded (marketing-coach sources call it out as extraction-framing; district-sales
+guidance notes education buyers have a high "sniff-o-meter" for sales jargon). "Intro
+call" is plain, peer-voiced, needs no explanation. Runner-up: "consultation" (more
+formal, for superintendent-facing collateral). Applied site-wide + in the setup
+checklist's Calendly event name.
+
+**How It Works page** (`how-it-works.html`): six phases (intro call → kickoff → listen
+first → the work → checkpoints → closeout) verified against real patterns (David A.
+Fields kickoff model, Instruction Partners' 6-week coaching-cycle doc — incl. the
+meet-every-teacher-1:1-before-coaching move, Stanford/NSSA kickoff agenda). The
+month-by-month school-year arc is a **synthesis** (marked illustrative on the page);
+spring SOL window protection reflects published VA district testing calendars.
+
+**Curiosity Instructor membership ($199/yr — PROPOSED).** Comparables: NSTA $70–90/yr,
+VAST $25/yr, We Skoolhouse $199/yr (closest solo-operator analog), LK Teacher Club
+~$228/yr. Bundle modeled on the solo-sustainable pattern: monthly live session, resource
+library, community, hour-stamped certificates (the *division* approves renewal points —
+8VAC20-23-110; provider only supplies documentation), workshop discounts, annual badge.
+**Naming guardrail:** avoid "certified/certification/endorsed/official" (FTC endorsement
+penalty notices + Myra's VDOE employment); "membership/recognition/designation" is the
+safe register — disclaimer included on the page. Name alternates if "Curiosity
+Instructor" doesn't land: Curiosity Educator, Curiosity Classroom Fellow. Sustainability
+estimate: ~300–450 hrs/yr at ~200 members (~$40K gross) — a side-line, not the core.
+
 ## Key sources
 
 Packaging: bscs.org/services · curriculumsolutions.net/curriculum-management-audit ·
