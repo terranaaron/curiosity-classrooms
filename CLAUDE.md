@@ -41,6 +41,17 @@ Virginia."
 - `curiosityclassroomsva.com` — was available (fallback).
 - `curiosityclassrooms.com` — held by an unrelated party since 2023.
 
+## Status update (2026-07-26)
+
+Added **Prototype D (unified)** — all three personas on one homepage ("three doors"),
+plus a researched service menu: 8 named packages grouped See clearly / Plan / Build /
+Sustain, each with per-engagement deliverables, a "one engagement, three desks" overlap
+section, and a "built to be buyable" strip (Title II-A framing, license-renewal
+documentation, small-purchase sizing). Research basis + sources in
+`docs/service-menu-notes.md`. The menu is a **proposal awaiting Myra's reaction**; the
+SIG-transition timeline on the page carries a CONFIRM marker. Index now shows four
+options; A–C footers updated to "of 4".
+
 ## Status (2026-07-13)
 
 Phase 1 done: three creative-direction homepage prototypes (bake-off), one per
