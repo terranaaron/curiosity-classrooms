@@ -51,6 +51,18 @@ Virginia."
    research-refresh, Myra-open-questions tracker, prototype-consistency checker.
 3. Phase 2 (production site) starts after the direction pick — plan already in this file.
 
+## Status update (2026-08-01)
+
+Option D restyled to match the review-index branding (Aaron's call): green-gray
+neutrals from the landing page (`#F7F6F2` paper / `#26312E` ink family), teal
+(`#0E7C7B`) as the single brand accent (buttons, nav, labels, timeline — replaces
+plum), superintendent audience accent now navy `#16273E` (matches Option B's
+index color — replaces copper), photo-placeholder gradient now teal→green.
+Amber dashed placeholder style unchanged (facts-discipline convention). All
+color changes live in `prototypes/unified/styles.css` vars (`--plum*` →
+`--brand*`, `--copper` → `--navy`) plus two `var()` swaps in the
+curiosity-classroom Venn SVG.
+
 ## Status update (2026-07-27)
 
 Option D round 2 per Aaron: (1) **"Intro call"** replaces "discovery call" site-wide
