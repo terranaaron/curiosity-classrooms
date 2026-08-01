@@ -33,6 +33,13 @@ in the prototypes). Never invent quotes, client names, statistics, or credential
   visible copy. (It's the current term of art: Learning Forward / ASCD / IES.
   SEO catch: buyers still *search* "professional development" — handle via
   metadata/keywords at production launch, never in visible copy.)
+- **Write-around rule** (Aaron, 2026-08-01): in brand voice use "professional
+  learning" plainly; in *borrowed voice* (ghostwritten teacher emails, casual
+  desk-list items) don't force the term — write around it ("Idea for our
+  science team", "Decisions like this usually live with…", "Generic workshops
+  reach no one"). Never reintroduce "PD" even in casual voice. Sweep applied
+  to Options A–C too (2026-08-01), along with the "science office" fix and
+  the K-12 teaching fact.
 - **No "cabinet."** Schools and divisions don't have cabinets — write "your
   superintendent and school board" or "division leadership."
 - **Four audiences**, not three: science teachers & teams · principals &
