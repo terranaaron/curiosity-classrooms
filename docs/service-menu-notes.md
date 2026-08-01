@@ -87,3 +87,35 @@ points) · law.lis.virginia.gov/vacodefull/title2.2/chapter43/article3 (procurem
 exemption) · doe.virginia.gov science & Title II-A pages ·
 vestals21stcenturyclassroom.com/2025-science-sols-what-you-need-to-know (SIG timeline —
 secondary source) · icsequity.org/how-to-hire-education-consultant-for-school-district
+
+## Feedback 1 — Myra's pricing + restructure (2026-08-01)
+
+Menu reorganized **by audience** (was: See/Plan/Build/Sustain). Anchor rate from
+Myra: **$150/hr**; travel billed separately. Her numbers: intro call free ·
+planning session $150 (waived on signing) · school visit & audit $2,000 · onsite
+course (10+ teachers) $5,500, 3-wk lead, ≥2 hrs agenda-setting · leads coaching
+$150/hr · book study $800 (3 bi-weekly sessions, cohort of six) · principal
+retainer $1,000/qtr (10 hrs) · School Science Action Plan $1,500 · Whole-School
+Science Review $5,000. Open: follow-up professional-learning package pricing,
+community-access definition, book-study per-person?, convening format, data-review
+pricing, whether the action plan is inside the $2,000 visit.
+
+**Rate sanity-check (web, 2026-08-01):** independent ed-consultant band
+$85–$395/hr, IECA member average $140–$230/hr (counselmore.com FAQ +
+consultfees.com) → $150 is mid-band, defensible. Full-day customized teacher
+workshop benchmark ~$2,700/day base (smekenseducation.com) → her $2,000 visit
+day is priced to move; $5,500 for a built-to-order course for 10+ is ~2 workshop
+days equivalent — reasonable. Travel-billed-separately is standard guidance
+(counselmore.com). Audit structure (data + classroom visits + leadership
+interviews) mirrors Hanover Research's instructional-audit model; audit pricing
+is custom-quoted industry-wide, which supports "scoped by division size."
+
+**Division packages (Claude proposals, scaled from principal tier — for Myra):**
+Program Review from $12,500 (all-schools data, sampled visits, supt/board
+briefing — 2.5× the $5,000 single-school review) · School Cohort $2,000/school
+(3–8 schools) + $2,500 division synthesis (reuses the school-visit unit price) ·
+Division Retainer $3,000/qtr for 30 hrs (same $100/hr retainer discount as the
+principal retainer). All marked [PROPOSED] on the site.
+
+**Terminology (binding):** "professional learning," never PD (Learning Forward /
+ASCD / IES usage); no "cabinet" → "superintendent and school board."

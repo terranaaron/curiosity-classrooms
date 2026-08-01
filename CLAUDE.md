@@ -16,9 +16,68 @@ correlation process); formerly Fairfax County Public Schools science office —
 directed the FCPS regional science fair, led HS science course-materials reviews.
 LinkedIn: "Science Curriculum Designer."
 
-**Unconfirmed — never assert:** doctorate/credentials, classroom teaching history,
-VAST/NSTA roles. Use `[PLACEHOLDER: ...]` markers (amber dashed style in the
-prototypes). Never invent quotes, client names, statistics, or credentials.
+**Verified by Myra** (call 2026-08-01, relayed by Aaron): she has taught science
+at every grade level K-12 **except sixth**. Site may assert "taught science at
+nearly every grade level, K-12." Years, schools, and subjects still unconfirmed.
+Positioning she wants: the classroom → Fairfax → VDOE **trifecta** ("almost
+nobody has held all three chairs"), and do NOT reduce her FCPS role to
+"science office" in the bio line.
+
+**Unconfirmed — never assert:** doctorate/credentials, teaching years/schools/
+subjects, VAST/NSTA roles. Use `[PLACEHOLDER: ...]` markers (amber dashed style
+in the prototypes). Never invent quotes, client names, statistics, or credentials.
+
+## Voice & terminology (Myra, 2026-08-01 — binding for all site copy)
+
+- Say **"professional learning"** — never "PD" or "professional development" in
+  visible copy. (It's the current term of art: Learning Forward / ASCD / IES.
+  SEO catch: buyers still *search* "professional development" — handle via
+  metadata/keywords at production launch, never in visible copy.)
+- **No "cabinet."** Schools and divisions don't have cabinets — write "your
+  superintendent and school board" or "division leadership."
+- **Four audiences**, not three: science teachers & teams · principals &
+  school leaders · division science leads · division leadership. "School
+  leaders" and "division leaders" replace "superintendents" framing.
+  Principals were the missing audience — they now have their own door,
+  service section (`services.html#principals`), and desk.
+
+## Pricing (from Myra, 2026-08-01 — anchor rate $150/hr; travel billed separately)
+
+- Intro call, 30 min — **free**, publicly bookable (live Google appointment
+  schedule, embedded on Option D contact page)
+- Planning session, 60 min — **$150**, waived when an engagement is signed
+- School Visit & Instructional Audit — **$2,000**: principal conversation,
+  full-day visit w/ half-day walkthrough, teacher-leader conversation, 30 min
+  with ~10 teachers, remote debrief, personalized action plan (first plan covers
+  ~10 teachers) [CONFIRM: plan included in price]
+- Follow-up professional learning (online): individual = 10 teachers × three
+  30-min conversations; group = ten 60-min sessions + offline follow-up;
+  community access = TBD (possibly Curiosity Instructor). Onsite = same +
+  travel. [CONFIRM: package pricing]
+- Onsite course, 10+ teachers — **$5,500**, 3-week lead time, ≥2 hrs
+  agenda-setting with client team
+- Science leads: coaching **$150/hr** · book/curriculum study **$800** (three
+  bi-weekly sessions, cohort of six) [CONFIRM: per person] · offsite peer
+  convenings [CONFIRM: format/pricing]
+- Principals: data review [CONFIRM: pricing] · retainer **$1,000/quarter for
+  10 hrs** · School Science Action Plan **$1,500** (implementation may or may
+  not include Myra) · Whole-School Science Review **$5,000** (all data, sampled
+  classroom visits, conversation with a division leader)
+- Division ([PROPOSED by Claude 2026-08-01 — awaiting Myra]): Program Review
+  from **$12,500** · School Cohort **$2,000/school + $2,500 synthesis** (3–8
+  schools) · Division Retainer **$3,000/quarter for 30 hrs**. Logic: scaled
+  from principal packages; benchmarks say $150/hr is mid-band (IECA avg
+  $140–230/hr) and full-day custom workshops run ~$2,700/day (Smekens).
+
+## Booking (live)
+
+Google Calendar appointment schedule (free 30-min intro call):
+`https://calendar.google.com/calendar/appointments/schedules/AcZssZ3vKC_n05owIipEAVXAbuAqyIwpJ3W0WAgCfpjQKsVJSYF988EzKR9Oxg945851qWJ2n8ZYojOl?gv=true`
+Inline iframe on `contact.html#book`; Google scheduling-button popups (brand
+color #0E7C7B) on unified index + services; all intro-call CTAs →
+`contact.html#book`. Calendly is dead — getting-set-up.html Phase 2 rewritten
+accordingly (Google-native; card payments someday = paid Workspace + Stripe
+under the hood; districts pay by PO/invoice anyway).
 
 **Compliance guardrail:** Myra is a current state employee. Her VDOE role may be
 stated as fact, but nothing may imply VDOE or FCPS endorsement, use her .gov
@@ -50,6 +109,17 @@ Virginia."
    project-level `.claude/skills/` candidates: deploy-and-verify-Pages loop,
    research-refresh, Myra-open-questions tracker, prototype-consistency checker.
 3. Phase 2 (production site) starts after the direction pick — plan already in this file.
+
+## Status update (2026-08-01, later — feedback 1)
+
+**Myra's first feedback round applied to Option D** (badge now "feedback 1"):
+terminology (professional learning), four audience doors incl. principals
+(plum accent — matches landing d-accent), bio recast as classroom→district→state
+trifecta, services rebuilt BY AUDIENCE with her real pricing (see Pricing
+section), planning-session step added to How It Works, "cabinet" language
+replaced, live Google booking embedded (see Booking). Division packages are
+Claude's proposals awaiting her reaction. Research appended to
+`docs/service-menu-notes.md`. Root index Option D card updated.
 
 ## Status update (2026-08-01)
 

@@ -203,36 +203,33 @@
   <div class="phase">
     <p class="phase-label mono">Phase 2</p>
     <h2>Let people book you</h2>
-    <p class="when">About an hour, and the basic version is free.</p>
+    <p class="when">Good news: this phase finished itself. Your booking page is live.</p>
     <ul class="check">
-      <li><input type="checkbox" id="p2-cal">
-        <label for="p2-cal"><span class="t">Create a free Calendly account and connect your
-          calendar <span class="est">· 20 min</span></span> <span class="who">MYRA</span>
-        <p>Calendly is a page where people pick a time on your calendar — no email
-          back-and-forth. You connect your own calendar once, and it automatically refuses
-          times you're busy. Double-booking becomes impossible.</p></label></li>
-      <li><input type="checkbox" id="p2-event">
-        <label for="p2-event"><span class="t">Make one event type: "Intro call — 30 minutes"
-          <span class="est">· 15 min</span></span> <span class="who">MYRA</span>
-        <p>Just one. Pick two or three windows a week when you're willing to take calls
-          (say, Tuesday and Thursday afternoons). You can add more event types later — or
-          never.</p></label></li>
-      <li><input type="checkbox" id="p2-link">
-        <label for="p2-link"><span class="t">Put the booking link behind the website buttons</span>
+      <li class="done-item"><input type="checkbox" id="p2-cal" checked>
+        <label for="p2-cal"><span class="t">Booking page — done, and it's plain Google.</span>
+        <p>Your Google Calendar <i>appointment schedule</i> is live: a page where people
+          pick a time on your calendar — no email back-and-forth, no new account, no
+          Calendly needed. It automatically refuses times you're busy, so double-booking
+          is impossible.</p></label></li>
+      <li class="done-item"><input type="checkbox" id="p2-event" checked>
+        <label for="p2-event"><span class="t">One bookable event: "Intro call — 30 minutes."</span>
+        <p>Free and publicly bookable. Adjust your offered windows anytime in Google
+          Calendar under <i>Appointment schedules</i> — the website updates by itself.</p></label></li>
+      <li class="done-item"><input type="checkbox" id="p2-link" checked>
+        <label for="p2-link"><span class="t">Booking wired into the website</span>
           <span class="who aaron">AARON</span>
-        <p>Every "Book an intro call" button on the site points at your Calendly page.
-          One line of code. Send Aaron the link and forget about it.</p></label></li>
+        <p>The live calendar is embedded on the Option D contact page, and every "Book an
+          intro call" button on the site opens it.</p></label></li>
       <li><input type="checkbox" id="p2-stripe">
-        <label for="p2-stripe"><span class="t">Later — much later: taking card payments through
-          Calendly + Stripe <span class="est">· 45 min, someday</span></span>
-        <p>Stripe is the standard tool that lets a small business accept cards. Calendly can
-          ask for payment when someone books — you connect Stripe once under
-          <i>Integrations</i>, then add a price to any paid session type (this one feature
-          needs Calendly's Standard plan, about $10/month — the free plan covers everything
-          else on this page). <b>Here's the calming part:</b> school divisions don't pay
-          by credit card anyway — they pay by purchase order and check, like they always
-          have. Stripe only matters the day you decide to sell something bookable to
-          individuals. That day may be months away, or never. Skip guilt-free.</p></label></li>
+        <label for="p2-stripe"><span class="t">Later — much later: taking card payments
+          <span class="est">· 45 min, someday</span></span>
+        <p>If you ever want people to pay at the moment they book (say, a $150 planning
+          session), Google Calendar can take cards at booking time — it uses Stripe
+          underneath and needs a paid Google Workspace plan (about $10/month).
+          <b>Here's the calming part:</b> schools and divisions don't pay by credit card
+          anyway — they pay by purchase order and check, like they always have. Card
+          payments only matter the day you sell something bookable to individuals. That
+          day may be months away, or never. Skip guilt-free.</p></label></li>
     </ul>
   </div>
 
@@ -283,7 +280,7 @@
       <li><input type="checkbox" id="p3-policies">
         <label for="p3-policies"><span class="t">Website privacy policy &amp; terms page</span>
           <span class="who aaron">AARON</span>
-        <p>Because the contact form and Calendly collect names and emails, the site needs a
+        <p>Because the contact form and booking calendar collect names and emails, the site needs a
           short privacy policy and terms page. These are generated from a reputable template
           service and dropped into the footer. Not your errand.</p></label></li>
       <li><input type="checkbox" id="p3-swam">
@@ -331,7 +328,7 @@
       <li><input type="checkbox" id="p4-build">
         <label for="p4-build"><span class="t">Build the production site, connect the domain,
           wire everything together</span> <span class="who aaron">AARON</span>
-        <p>Site, domain, contact form, Calendly buttons, policy pages, search-engine
+        <p>Site, domain, contact form, booking buttons, policy pages, search-engine
           plumbing. Not your errand.</p></label></li>
     </ul>
   </div>
