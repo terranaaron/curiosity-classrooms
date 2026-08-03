@@ -140,6 +140,18 @@ color changes live in `prototypes/unified/styles.css` vars (`--plum*` →
 `--brand*`, `--copper` → `--navy`) plus two `var()` swaps in the
 curiosity-classroom Venn SVG.
 
+## Status update (2026-08-01, earlier — checklist link fixes)
+
+Pre-call prep: the community-guidance links in `getting-set-up.html` were
+paywalled or gated (Rosieland Medium article = member-only; CMX guide =
+email-gated). Replaced with Community Canvas and Jono Bacon's *The Art of
+Community* (both free, no signup, access verified 2026-08-01); kept the Remind
+educator-community case study (readable); added The Bossy Sauce 35-minute
+community-Slack walkthrough beside Slack's official clips (commit `0480337`).
+**Link-vetting rule for anything Myra-facing:** an HTTP 200 is not enough —
+open the page and confirm the content is actually free to read (no member
+wall, no email gate) before linking it.
+
 ## Status update (2026-07-27)
 
 Option D round 2 per Aaron: (1) **"Intro call"** replaces "discovery call" site-wide
